@@ -1,48 +1,38 @@
-<?php
-session_start();
-// Check first page if empty, If any empty redirects back to first page.
-if (isset($_POST['name'])){
- if (empty($_POST['name'])
- || empty($_POST['age'])
- || empty($_POST['sex'])
- || empty($_POST['email'])
- || empty($_POST['contactNumber'])
- || empty($_POST['facebookLink'])
- || empty($_POST['address'])
- || empty($_POST['region'])
- || empty($_POST['province'])
- || empty($_POST['city'])
- || empty($_POST['consent'])){ 
- // error message
- $_SESSION['error'] = "Please enter the required information.";
- header("location: /PHP-CVMS/CVMS/personal.php"); // Redirecting to first page 
- } else {
- // Sanitizing email field to remove unwanted characters.
- $_POST['email'] = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); 
- // After sanitization Validation is performed.
- if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){ 
- // Validating Contact Field using regex.
- if (!preg_match("/^[0-9]{11}$/", $_POST['contactNumber'])){ 
- $_SESSION['error'] = "11 digit contact number is required.";
- header("location: /PHP-CVMS/CVMS/personal.php");
- } else {
- if (($_POST['password']) === ($_POST['confirm'])) {
- foreach ($_POST as $key => $value) {
- $_SESSION['post'][$key] = $value;
- }
- } else {
- $_SESSION['error'] = "Password does not match with Confirm Password.";
- header("location: page1_form.php"); //redirecting to first page
- }
- }
- } else {
- $_SESSION['error'] = "Invalid Email Address";
- header("location: page1_form.php");//redirecting to first page
- }
- }
-} else {
- if (empty($_SESSION['error_page2'])) {
- header("location: page1_form.php");//redirecting to first page
- }
-}
-?>
+<?php include './inc/header.php'; ?>
+
+    <img src="/PHP-CVMS/CVMS/img/logo.png" style="height:100px; width:100px;" class="mb-2" alt="PUP Taguig logo">
+    <h3 style="font-family:Poppins; font-weight:700;">New Record | Personal Profile</h3>
+    <h5 style="font-family:DM Sans;">Please enter the following information</h5>
+    <div>
+      <?php 
+      $connection = mysqli_connect("localhost", "root", "", "php-cvms");
+      if ($connection === false) {
+        die("MySQL Server connection failed:  " . mysqli_connect_error());
+      }
+
+      $name = $_REQUEST['name'];
+      $age = $_REQUEST['age'];
+      $sex = $_REQUEST['sex'];
+      $email = $_REQUEST['email'];
+      $contactNumber = $_REQUEST['contactNumber'];
+      $facebookLink = $_REQUEST['facebookLink'];
+      $address = $_REQUEST['address'];
+      $region = $_REQUEST['region'];
+      $province = $_REQUEST['province'];
+      $city = $_REQUEST['city'];
+      $course = $_REQUEST['course'];
+      $yearSection = $_REQUEST['yearSection'];
+
+      $sql = "INSERT INTO students (name,age,sex,email,contact_number,facebook_link,address,region,province,city,course,year_section) VALUES ('$name', '$age', '$sex', '$email', '$contactNumber', '$facebookLink', '$address','$region','$province','$city','$course','$yearSection')";
+
+      if (mysqli_query($connection, $sql)) {
+        echo "Success";
+      } else {
+        echo mysqli_error($connection);
+      }
+
+      mysqli_close($connection);
+      ?>
+    </div>
+    
+<?php include './inc/footer.php'; ?>

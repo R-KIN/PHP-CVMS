@@ -6,20 +6,20 @@
     <h5 style="font-family:DM Sans;">Please enter the following information</h5>
     <span id="error">
       <?php 
-      // if (!empty($_SESSION['error'])) {
-        // echo $_SESSION['error'];
-        // unset($_SESSION['error']);
-      // }
+       //if (!empty($_SESSION['error'])) {
+        //echo $_SESSION['error'];
+        //unset($_SESSION['error']);
+       //}
       ?>
     </span>
-    <form style="font-family:DM Sans;" class="row g-3 mt-1 w-75" action="vaccination.php" method="POST">
+    <form style="font-family:DM Sans;" class="row g-3 mt-1 w-75" action="submit.php" method="POST">
       <div class="col-md-4">
         <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Last Name, First Name M.I.">
+        <input type="text" class="form-control" name="name" id="name" placeholder="Last Name, First Name M.I.">
       </div>
       <div class="col-md-4">
         <label for="age" class="form-label">Age</label>
-        <input type="number" class="form-control" id="age">
+        <input type="number" class="form-control" name="age" id="age">
       </div>
       <div class="col-md-4">
         <label for="sex" class="form-label">Sex</label>
@@ -64,7 +64,7 @@
       </div>
       <div class="col-md-6">
         <label for="course" class="form-label">Course</label>
-        <select class="form-select" aria-label="Course" name="course" id="course">
+        <select class="form-select" name="course" id="course">
           <option selected disabled>Choose a course...</option>
           <option value="BSA">BS Accountancy</option>
           <option value="BSECE">BS Electronics Engineering</option>
@@ -81,7 +81,7 @@
       </div>
       <div class="col-md-4">
         <label for="yearSection" class="form-label">Year & Section</label>
-        <select class="form-select" aria-label="Year & Section" name="yearSection" id="yearSection">
+        <select class="form-select" name="yearSection" id="yearSection">
           <option selected disabled>Choose a year and section...</option>
           <option value="1-1">1-1</option>
           <option value="2-1">2-1</option>
@@ -91,7 +91,7 @@
         </select>
       </div>
       <div class="col-12">
-        <button type="submit" style="background-color:#800000; color:white;" class="btn w-25">Next</button>
+        <input type="submit" value="Submit">
       </div>
     </form>
     

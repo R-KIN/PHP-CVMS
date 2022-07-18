@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,21 +16,29 @@
 <body>
   <nav style="background-color:#800000;" class="navbar navbar-expand-sm sticky-top navbar-dark mb-4">
     <div class="container">
-      <a class="navbar-brand" href="#"></a>
+      <a style="font-family:DM Sans;" class="navbar-brand" href="#">
+        <?php 
+        if (isset($_SESSION['username'])) {
+          echo $_SESSION['username'];
+        }
+        ?>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-         <li class="nav-item">
-            <a class="nav-link" href="/PHP-CVMS/CVMS/index.php">Home</a>
-          </li>
-         <li class="nav-item">
-            <a class="nav-link" href="/PHP-CVMS/CVMS/about.php">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/PHP-CVMS/CVMS/login.php">Login</a>
-          </li>
+        <ul style="font-family:DM Sans;" class="navbar-nav ms-auto">
+          <?php 
+          if (isset($_SESSION['username'])) {
+            echo "<li class='nav-item'><a class='nav-link' href='/PHP-CVMS/CVMS/dashboard.php'>Home</a></li>";
+            echo "<li class='nav-item'><a class='nav-link' href='/PHP-CVMS/CVMS/inc/log-out.php'>Logout</a></li>";
+          } 
+          else {
+            echo "<li class='nav-item'><a class='nav-link' href='/PHP-CVMS/CVMS/index.php'>Home</a></li>";
+            echo "<li class='nav-item'><a class='nav-link' href='/PHP-CVMS/CVMS/about.php'>About</a></li>";
+            echo "<li class='nav-item'><a class='nav-link' href='/PHP-CVMS/CVMS/login.php'>Login</a></li>";
+          }
+          ?>
         </ul>
       </div>
   </div>
