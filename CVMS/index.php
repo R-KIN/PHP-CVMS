@@ -1,5 +1,12 @@
 <?php include './inc/header.php'; ?>
+<?php 
 
+if (isset($_SESSION['username'])) {
+  header("location: /PHP-CVMS/CVMS/dashboard.php");
+  exit();
+}
+
+?>
     <img src="/PHP-CVMS/CVMS/img/logo.png" style="height:100px; width:100px;" class="mb-2" alt="PUP Taguig logo">
     <h3 style="font-family:Poppins; font-weight:700;">COVID Vaccination Monitoring System</h3>
     <h5 style="font-family:DM Sans;">Polytechnic University of the Philippines Taguig</h5>

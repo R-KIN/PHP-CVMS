@@ -28,6 +28,6 @@ if (isset($_POST['submit'])) {
   createUser($connection, $username, $password);
 } 
 else {
-  header("location: /PHP-CVMS/CVMS/inc/register.php");
+  header("location: /PHP-CVMS/CVMS/register.php");
   exit();
 }
