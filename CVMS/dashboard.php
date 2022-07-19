@@ -14,12 +14,17 @@ if (!isset($_SESSION['username'])) {
       if (isset($_GET['error'])) {
         if ($_GET['error'] == 'deleteFailed') {
           echo "<div class='alert alert-danger alert-dismissable fade show' role='alert'>";
-          echo "Something went wrong. <button type='button' class='btn-close h-50' data-bs-dismiss='alert' aria-label='close'></button>";
+          echo "Delete failed. Something went wrong. <button type='button' class='btn-close h-50' data-bs-dismiss='alert' aria-label='close'></button>";
+          echo "</div>";
+        }
+        else if ($_GET['error'] == 'viewFailed') {
+          echo "<div class='alert alert-danger alert-dismissable fade show' role='alert'>";
+          echo "View Failed. Something went wrong. <button type='button' class='btn-close h-50' data-bs-dismiss='alert' aria-label='close'></button>";
           echo "</div>";
         }
         else if ($_GET['error'] == 'none') {
           echo "<div class='alert alert-warning alert-dismissable fade show' role='alert'>";
-          echo "Record removed succesfully. <button type='button' class='btn-close h-50' data-bs-dismiss='alert' aria-label='close'></button>";
+          echo "Record removed successfully. <button type='button' class='btn-close h-50' data-bs-dismiss='alert' aria-label='close'></button>";
           echo "</div>";
         }
       }

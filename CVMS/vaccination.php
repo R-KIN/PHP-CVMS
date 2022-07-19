@@ -1,6 +1,5 @@
 <?php include './inc/header.php'; ?>
 <?php 
-
 if (isset($_SESSION['username'])) {
   header("location: /PHP-CVMS/CVMS/dashboard.php");
   exit();
@@ -9,7 +8,6 @@ else if (!isset($_SESSION['personal'])) {
   header("location: /PHP-CVMS/CVMS/personal.php");
   exit();
 }
-
 ?>
 
     <img src="/PHP-CVMS/CVMS/img/logo.png" style="height:100px; width:100px;" class="mb-2" alt="PUP Taguig logo">

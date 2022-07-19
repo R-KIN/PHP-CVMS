@@ -93,35 +93,49 @@ if (!isset($_SESSION['username'])) {
           if (empty($student['vaccinated'])) {
             echo "<td>--</td>";
           }
+          else {
+            echo "<td>" . $student['vaccinated'] . "</td>";
+          }
           if (empty($student['vaccine_name'])) {
             echo "<td>--</td>";
+          }
+          else {
+            echo "<td>" . $student['vaccine_name'] . "</td>";
           }
           if (empty($student['first_vaccine'])) {
             echo "<td>--</td>";
           }
+          else {
+            echo "<td>" . $student['first_vaccine'] . "</td>";
+          }
           if (empty($student['second_vaccine'])) {
             echo "<td>--</td>";
+          }
+          else {
+            echo "<td>" . $student['second_vaccine'] . "</td>";
           }
           if (empty($student['boosted'])) {
             echo "<td>--</td>";
           }
+          else {
+            echo "<td>" . $student['boosted'] . "</td>";
+          }
           if (empty($student['booster_name'])) {
             echo "<td>--</td>";
           }
+          else {
+            echo "<td>" . $student['booster_name'] . "</td>";
+          }
           if (empty($student['first_booster'])) {
             echo "<td>--</td>";
+          }
+          else {
+            echo "<td>" . $student['first_booster'] . "</td>";
           }
           if (empty($student['second_booster'])) {
             echo "<td>--</td>";
           }
           else {
-            echo "<td>" . $student['vaccinated'] . "</td>";
-            echo "<td>" . $student['vaccine_name'] . "</td>";
-            echo "<td>" . $student['first_vaccine'] . "</td>";
-            echo "<td>" . $student['second_vaccine'] . "</td>";
-            echo "<td>" . $student['boosted'] . "</td>";
-            echo "<td>" . $student['booster_name'] . "</td>";
-            echo "<td>" . $student['first_booster'] . "</td>";
             echo "<td>" . $student['second_booster'] . "</td>";
           }
           echo "<td>" . $student['date_created'] . "</td>";

@@ -148,7 +148,7 @@ function invalidLink($facebookLink) {
 
 function invalidAddress($address, $region, $province, $city) {
   $check = null;
-  if (!preg_match("/^[a-zA-Z0-9,.\s]*$/", $address) || !preg_match("/^[a-zA-Z0-9,.]*$/", $region) || !preg_match("/^[a-zA-Z0-9,.]*$/", $province) || !preg_match("/^[a-zA-Z0-9,.]*$/", $city)) {
+  if (!preg_match("/^[a-zA-Z0-9,.\s]*$/", $address) || !preg_match("/^[a-zA-Z0-9,.\s]*$/", $region) || !preg_match("/^[a-zA-Z0-9,.\s]*$/", $province) || !preg_match("/^[a-zA-Z0-9,.\s]*$/", $city)) {
     $check = true;
   }
   else {
